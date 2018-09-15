@@ -41,7 +41,12 @@
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required><br>
-        
+
+        <div class="form-group">
+          <label for="comment">Tell us about yourself:</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+
         <p>Choose your notifications</p>
         <div class="checkbox">
           <label><input type="checkbox" value="remember-me"> Patch Notes</label>
@@ -62,8 +67,18 @@
         </div>
         <div class="radio">
           <label><input type="radio" name="optradio"> Pro</label>
+        </div><br>
+
+        <p>Choose your character type</p>
+        <div class="form-group">
+          <label for="select1">Character Type List</label>
+          <select class="form-control" id="select1">
+            <option>DPS</option>
+            <option>Tank</option>
+            <option>Support</option>
+          </select>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit"><a href="index.html">Sign in</a></button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><a href="index.html">Submit</a></button>
       </form>
 
     </div> <!-- /container -->
