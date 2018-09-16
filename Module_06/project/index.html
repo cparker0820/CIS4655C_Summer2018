@@ -33,6 +33,46 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
+
+<!--Notification
+================================================= -->
+  <script>
+        if( 'Notification' in window){
+            if (Notification.permission === 'granted') {
+                // If it's okay let's create a notification
+                doNotify();
+            }else{
+                //notification == denied
+                Notification.requestPermission()
+                    .then(function(result) {
+                        console.log(result);  //granted || denied
+                        if( Notification.permission == 'granted'){
+                            doNotify();
+                        }
+                    })
+                    .catch( (err) => {
+                        console.log(err);
+                    });
+            }
+        }
+
+        function doNotify(){
+            let title = "Welcome!";
+            let options = {
+                body: 'New Game Patch Notes!',
+                icon: 'overwatch.jpg',
+            }
+            let n = new Notification(title, options);
+            n.addEventListener('show', function(ev){
+                console.log('SHOW', ev.currentTarget.data);
+            });
+            n.addEventListener('close', function(ev){
+               console.log('CLOSE', ev.currentTarget.body);
+            });
+            setTimeout( n.close.bind(n), 10000); //close notification after 3 seconds
+        }
+    </script>
+
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -126,7 +166,7 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <div class="card" sytle="width: 18rem">
+          <div class="card" >
             <img class"card-img-top" src="placeimg_286_180_tech.jpg" alt="Card image top">
              <h3 class="rig">Yup, this is a heading :)</h3>
              <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
