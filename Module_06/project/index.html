@@ -33,46 +33,6 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-
-<!--Notification
-================================================= -->
-  <script>
-        if( 'Notification' in window){
-            if (Notification.permission === 'granted') {
-                // If it's okay let's create a notification
-                doNotify();
-            }else{
-                //notification == denied
-                Notification.requestPermission()
-                    .then(function(result) {
-                        console.log(result);  //granted || denied
-                        if( Notification.permission == 'granted'){
-                            doNotify();
-                        }
-                    })
-                    .catch( (err) => {
-                        console.log(err);
-                    });
-            }
-        }
-
-        function doNotify(){
-            let title = "Welcome!";
-            let options = {
-                body: 'New Game Patch Notes!',
-                icon: 'overwatch.jpg',
-            }
-            let n = new Notification(title, options);
-            n.addEventListener('show', function(ev){
-                console.log('SHOW', ev.currentTarget.data);
-            });
-            n.addEventListener('close', function(ev){
-               console.log('CLOSE', ev.currentTarget.body);
-            });
-            setTimeout( n.close.bind(n), 10000); //close notification after 3 seconds
-        }
-    </script>
-
     <div class="navbar-wrapper">
       <div class="container">
 
